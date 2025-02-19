@@ -1,101 +1,247 @@
-# ConnectQ CDK
+# **Pre-requisites**
 
-This project contains the AWS CDK infrastructure for ConnectQ, including Salesforce Knowledge Base integration.
+1. **AWS Environment**
+    1. Active AWS Account with appropriate access
+    2. AWS CLI installed and configured
+    3. AWS CDK CLI installed
+    4. Target region access and permissions
+2. **Amazon Connect**
+    1. Active Amazon Connect instance
+    2. Configured Connect queue
+    3. Connect administrator access
+3. **Salesforce**
+    1. Salesforce org with API access
+    2. Knowledge base implementation
+    3. Appropriate Salesforce access
+    4. Connected App setup permissions - https://help.salesforce.com/articleView?id=connected_app_overview.htm
+4. AppFlow
+    1. Salesforce Connector for AppFlow  - https://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html#salesforce-setup
+5. **Development Environment**
+    1. Python 3.x
+    2. Git
+    3. Code editor
+    4. AWS CDK development experience
+6. **Security Access**
+    1. Appropriate IAM permissions
+    2. Appropriate Salesforce access
+    3. Amazon AppFlow Service access
 
-## Prerequisites
+### 
 
-1. AWS CDK CLI installed
-2. Python 3.9 or later
-3. A Salesforce account with API access
-4. AWS CLI configured with appropriate credentials
+# Configuration Details
 
-## Setup
+### **AWS Configuration**
 
-### 1. Install Dependencies
+```
+{
+"account": "Your-AWS-Account-ID",
+"region": "Your-Target-Region",
+"env_name": "Environment-Name"
+}
+```
 
-```bash
+### **Amazon Connect Setup**
+
+```
+{
+  "connect": {
+    "instance_id": "Your-Connect-Instance-ID",
+    "queue_id": "Your-Connect-Queue-ID"
+  }
+}
+```
+
+### **Salesforce AppFlow Configuration**
+
+    * Create AppFlow connection 
+    * Required permissions for Salesforce:
+        * Knowledge object read access
+        * API access enabled
+        * OAuth scopes configured
+
+### **Knowledge Base Mapping**
+
+    * Define your Lines of Business (LOBs)
+
+```
+ "LOBs": [
+        "LOB1",
+        "LOB2",
+        "LOB3"
+    ]
+```
+
+    * Map required fields:
+
+```
+"businessUnitFilters": {
+  "YourLOB1": {
+    "field": "Your-Classification-Field",
+    "value": "LOB1-Value"
+  }
+  // Add more LOBs as needed
+}
+```
+
+### **AppFlow-Salesforce  Configuration**
+
+```
+{
+  "connection_name": "dev-sf-connection",  // Replace with your AppFlow connection name
+  "object_name": "Knowledge__kav",         
+}
+```
+
+### **Knowledge Article Fields**
+
+```
+"projections": [
+  // System Required Fields
+  {"field": "Id", "data_type": "id"},
+  {"field": "LastModifiedDate", "data_type": "datetime"},
+  {"field": "ArticleNumber", "data_type": "string"},
+  {"field": "PublishStatus", "data_type": "picklist"},  
+  {"field": "UrlName", "data_type": "string"}
+  
+  // Custom Fields - Replace with your actual fields
+  {"field": "Your-Title-Field", "data_type": "string"},
+  {"field": "Your-Content-Field", "data_type": "textarea"},
+  
+  // Add additional fields as needed
+]
+```
+
+### Salesforce Knowledge Filter
+
+```
+"filters": [
+  {
+    "field": "PublishStatus",
+    "operator": "EQUAL_TO",
+    "values": ["Online", "Archived"]
+  }
+  // Add additional filters as needed
+]
+```
+
+### Salesforce Knowledge Validation Rules
+
+```
+"validations": [
+  {
+    "field": "Your-Content-Field", // Replace with your content field. Must be in the list of Projections above
+    "operator": "VALIDATE_NON_NULL",
+    "action": "DropRecord"
+  }
+  // Add additional validations as needed
+]
+```
+
+## Important Notes:
+
+* The connection_name  must match your Amazon AppFlow-Salesforce connection name exactly
+* The object_name  should be Knowledge__kav
+* Ensure the AppFlow connection has proper permissions to access the specified object
+* Test connection and object access before deployment
+* Document any custom object names or connection names used
+* Keep configuration consistent across environments
+* Validate object permissions and field accessibility
+
+
+
+# Deploying the CDK
+
+### Clone and Configure Project
+
+```
+# Clone the repository
+git clone <repository-url>
+cd ConnectQ-CDK
+
+```
+
+### Install Dependencies
+
+```
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
-### 2. Configure Environment
+### Bootstrap CDK Environment
 
-1. Update config/config.dev.json with your AWS environment details:
-   ```json
-   {
-     "vpc_id": "YOUR_VPC_ID",  // Replace with your VPC ID
-     "env_name": "dev",
-     "account": "YOUR_AWS_ACCOUNT",
-     "region": "YOUR_AWS_REGION"
-   }
-   ```
+If this is your first time using CDK in this account/region:
 
-### 3. Create Salesforce Connection in AppFlow
+```
+cdk bootstrap aws://ACCOUNT-NUMBER/REGION
+```
 
-Before deploying the stack, you need to manually create the Salesforce connection in AppFlow:
+### Build the Project
 
-1. Go to the AWS Console and navigate to Amazon AppFlow
-2. Click on "Create connection" in the "Connections" section
-3. Choose "Salesforce" as the connector
-4. For "Connection name", use the exact name specified in your config.dev.json (default: "dev-sf-connection")
-5. Choose "OAuth 2.0" as the authentication method
-6. Enter your Salesforce Connected App details:
-   - Client ID (from your Salesforce Connected App)
-   - Client Secret (from your Salesforce Connected App)
-7. Click "Continue" to authorize the connection with Salesforce
-   - You'll be redirected to Salesforce to log in and authorize the connection
-   - After authorization, you'll be redirected back to AWS
-8. Choose the appropriate data encryption settings
-9. Review and create the connection
+```
+# Install project dependencies
+npm run build
+```
 
-**Important Notes:**
-- The connection name must match exactly what's in your config.dev.json
-- Ensure the connection is successfully created before proceeding with the CDK deployment
-- If you change the connection name in config.dev.json, you'll need to create a new connection with the matching name
+### Review CDK Diff
 
-### 4. Deploy the Stack
+```
+cdk diff
+```
 
-After completing the configuration and creating the Salesforce connection:
+### Deploy the Stack
 
-```bash
+```
 cdk deploy
 ```
 
-## Stack Components
+The deployment will create the following resources:
 
-The stack creates the following resources:
+* Amazon AppFlow flow for Salesforce integration
+* Lambda functions for data processing
+* IAM roles and policies
+* Amazon Q knowledge bases
+* Amazon Connect integration components
 
-1. AppFlow flows for Salesforce Knowledge Base integration (using manually created connection)
-2. S3 buckets for raw and processed content
-3. Lambda function for content processing
-4. SQS queue for S3 event notifications
-5. Wisdom Knowledge Base and Assistant
-6. KMS key for encryption
-7. Necessary IAM roles and policies
+### Verify Deployment
 
-## Development
+After deployment completes:
 
-- Make changes to the stack in connect_q_cdk/stacks/connect_q_stack.py
-- Use `cdk diff` to see changes before deploying
-- Run `cdk deploy` to deploy changes
+* Check AWS CloudFormation console for stack status
+* Verify AppFlow flow creation
+* Confirm Lambda functions deployment
+* Check Amazon Q knowledge bases setup
+* Validate Amazon Connect integration
 
-## Security
+### Post-Deployment Steps
 
-- All sensitive data is encrypted using KMS
-- IAM roles follow the principle of least privilege
-- S3 buckets are configured with secure policies
+* Review and update the Amazon Connect contact flow
+    * Log in to your Amazon Connect instance
+    * Under **Routing**, choose **Contact Flows**.
+    * Choose the flow named: **qic-sf-contact-flow**
+    * Navigate to the **Get customer input** Block
+    * Update the Prompts to include your BUs or LOBs
+    * Update the Set contact attributes block for each options. The LOB attribute is mandatory, and the value should be the same as the ones provided in the CDK configuration at the time of deployment
 
-## Troubleshooting
+[Image: image.png]
+    * Click **Save** to save the flow
+    * Click **Publish** to publish the flow
+* Verify the AppFlow flow status. 
+    * Trigger the OnDemand Flow first - to retrieve the existing knowledge content from Salesforce
+    * Start the Scheduled Flow - to periodically poll Salesforce Knowledge too import any additions/updates to the Salesforce Knowledge.
+* Verify target s3 buckets for Salesforce data synchronization
+* Monitor CloudWatch logs
 
-### Connector Profile Error
-If you encounter the "Connector Profile does not exist" error:
-1. Verify that you've created the Salesforce connection in AppFlow before deploying the stack
-2. Check that the connection name in AppFlow exactly matches the name in config.dev.json
-3. If the connection exists but still getting errors, try recreating the connection in AppFlow
+## Troubleshooting Tips
 
-## Contributing
+### Common Issues and Solutions
 
-1. Create a feature branch
-2. Make your changes
-3. Run `cdk diff` to verify changes
-4. Submit a pull request
+* **AppFlow Connection Issues**
+    * Verify connection_name in config
+    * Check Salesforce credentials
+    * Validate OAuth token
+* **Permission Errors**
+    * Review IAM roles
+    * Verify Salesforce API access
+* **Knowledge Base Sync Issues**
+    * Validate object_name configuration
+    * Check field mappings
