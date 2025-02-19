@@ -1,10 +1,10 @@
 # **Pre-requisites**
 
 1. **AWS Environment**
-    1. Active AWS Account with appropriate access
-    2. AWS CLI installed and configured
-    3. AWS CDK CLI installed
-    4. Target region access and permissions
+    a. Active AWS Account with appropriate access
+    b. AWS CLI installed and configured
+    c. AWS CDK CLI installed
+    d. Target region access and permissions
 2. **Amazon Connect**
     1. Active Amazon Connect instance
     2. Configured Connect queue
