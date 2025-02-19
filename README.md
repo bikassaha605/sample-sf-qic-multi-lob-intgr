@@ -1,10 +1,10 @@
 # **Pre-requisites**
 
 1. **AWS Environment**
-    a. Active AWS Account with appropriate access
-    b. AWS CLI installed and configured
-    c. AWS CDK CLI installed
-    d. Target region access and permissions
+    1. Active AWS Account with appropriate access
+    2. AWS CLI installed and configured
+    3. AWS CDK CLI installed
+    4. Target region access and permissions
 2. **Amazon Connect**
     1. Active Amazon Connect instance
     2. Configured Connect queue
@@ -55,9 +55,9 @@
 
     * Create AppFlow connection 
     * Required permissions for Salesforce:
-        * Knowledge object read access
-        * API access enabled
-        * OAuth scopes configured
+        a. Knowledge object read access
+        b. API access enabled
+        c. OAuth scopes configured
 
 ### **Knowledge Base Mapping**
 
@@ -215,12 +215,12 @@ After deployment completes:
 ### Post-Deployment Steps
 
 * Review and update the Amazon Connect contact flow
-    * Log in to your Amazon Connect instance
-    * Under **Routing**, choose **Contact Flows**.
-    * Choose the flow named: **qic-sf-contact-flow**
-    * Navigate to the **Get customer input** Block
-    * Update the Prompts to include your BUs or LOBs
-    * Update the Set contact attributes block for each options. The LOB attribute is mandatory, and the value should be the same as the ones provided in the CDK configuration at the time of deployment
+    a. Log in to your Amazon Connect instance
+    b. Under **Routing**, choose **Contact Flows**.
+    c. Choose the flow named: **qic-sf-contact-flow**
+    d. Navigate to the **Get customer input** Block
+    e. Update the Prompts to include your BUs or LOBs
+    f. Update the Set contact attributes block for each options. The LOB attribute is mandatory, and the value should be the same as the ones provided in the CDK configuration at the time of deployment
 
 [Image: image.png]
     * Click **Save** to save the flow
@@ -236,12 +236,12 @@ After deployment completes:
 ### Common Issues and Solutions
 
 * **AppFlow Connection Issues**
-    * Verify connection_name in config
-    * Check Salesforce credentials
-    * Validate OAuth token
+    a. Verify connection_name in config
+    b. Check Salesforce credentials
+    c. Validate OAuth token
 * **Permission Errors**
-    * Review IAM roles
-    * Verify Salesforce API access
+    a. Review IAM roles
+    b. Verify Salesforce API access
 * **Knowledge Base Sync Issues**
-    * Validate object_name configuration
-    * Check field mappings
+    a. Validate object_name configuration
+    b. Check field mappings
