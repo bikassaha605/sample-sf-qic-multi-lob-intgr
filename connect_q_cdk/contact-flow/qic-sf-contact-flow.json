@@ -1,0 +1,406 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "c53f2c0d-1a18-442c-92be-973ce4b4640c",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -320.8,
+      "y": 40.8
+    },
+    "ActionMetadata": {
+      "c33f811a-bac7-48a6-a0b2-8b7bc1b4ad0d": {
+        "position": {
+          "x": 2370.4,
+          "y": 247.2
+        }
+      },
+      "486a3bab-a86b-4088-8c37-60403a62fd86": {
+        "position": {
+          "x": 1736,
+          "y": 218.4
+        },
+        "parameters": {
+          "QueueId": {
+            "displayName": "arn:aws:connect:ca-central-1:716590989057:instance/f1dfda88-99e8-486d-a28d-529b4cb4d3d0/queue/601d5000-2314-473a-9d01-716132c499ff"
+          }
+        },
+        "queue": {
+          "text": "arn:aws:connect:ca-central-1:716590989057:instance/f1dfda88-99e8-486d-a28d-529b4cb4d3d0/queue/601d5000-2314-473a-9d01-716132c499ff"
+        }
+      },
+      "725b93d6-526b-4bc3-939d-2058253e5419": {
+        "position": {
+          "x": 2020,
+          "y": 216
+        }
+      },
+      "b87d111c-f845-4170-a1e8-b3bd8e14e68b": {
+        "position": {
+          "x": 223.2,
+          "y": 40.8
+        }
+      },
+      "c53f2c0d-1a18-442c-92be-973ce4b4640c": {
+        "position": {
+          "x": -203.2,
+          "y": 39.2
+        }
+      },
+      "596a7f4d-34e5-4f66-aa96-4d31a41d25db": {
+        "position": {
+          "x": 12,
+          "y": 39.2
+        },
+        "overrideConsoleVoice": true
+      },
+      "4a06bb57-f800-4bc2-a7d1-ddb51c97c77c": {
+        "position": {
+          "x": 1038.4,
+          "y": 458.4
+        },
+        "dynamicParams": []
+      },
+      "7990fa57-7390-48b6-9c79-89a60ec5afcf": {
+        "position": {
+          "x": 456,
+          "y": 37.6
+        },
+        "children": [
+          "5acfdcbd-7027-453b-b50b-e24f6399345a"
+        ],
+        "parameters": {
+          "WisdomAssistantArn": {
+            "displayName": "arn:aws:wisdom:ca-central-1:716590989057:assistant/96bcb5b9-24a3-4c6c-ae6f-2a3f095faf55"
+          }
+        },
+        "fragments": {
+          "SetContactData": "5acfdcbd-7027-453b-b50b-e24f6399345a"
+        }
+      },
+      "5acfdcbd-7027-453b-b50b-e24f6399345a": {
+        "position": {
+          "x": 456,
+          "y": 37.6
+        },
+        "dynamicParams": []
+      },
+      "6830fe8b-e8e4-40a5-95b5-ba803d621f9e": {
+        "position": {
+          "x": 1035.2,
+          "y": 41.6
+        },
+        "dynamicParams": []
+      },
+      "e42fac42-382e-48d1-af9f-ac1d0c8311b9": {
+        "position": {
+          "x": 1439.2,
+          "y": 222.4
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "arn:aws:lambda:ca-central-1:716590989057:function:dev-connect-q-devFunctionconnectqagentselector837E-UImKjttZHVH6"
+          }
+        },
+        "dynamicMetadata": {}
+      },
+      "Play-GetInput": {
+        "position": {
+          "x": 742.4,
+          "y": 38.4
+        },
+        "isFriendlyName": true,
+        "conditionMetadata": [
+          {
+            "id": "1d72a541-90ed-4831-962c-2e668fae00ca",
+            "value": "1"
+          },
+          {
+            "id": "5bb7098b-19b4-464f-b9ef-21d239a71ac4",
+            "value": "2"
+          },
+          {
+            "id": "290bf7cb-8ec3-4fae-8063-e57b00a85187",
+            "value": "3"
+          }
+        ]
+      },
+      "49e7b73e-f8d2-4674-addd-73e05d9623fd": {
+        "position": {
+          "x": 1036.8,
+          "y": 242.4
+        },
+        "dynamicParams": []
+      }
+    },
+    "Annotations": [],
+    "name": "qic-sf-contact-flow-template",
+    "description": "",
+    "type": "contactFlow",
+    "status": "SAVED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {},
+      "Identifier": "c33f811a-bac7-48a6-a0b2-8b7bc1b4ad0d",
+      "Type": "EndFlowExecution",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "QueueId": "arn:aws:connect:ca-central-1:716590989057:instance/f1dfda88-99e8-486d-a28d-529b4cb4d3d0/queue/601d5000-2314-473a-9d01-716132c499ff"
+      },
+      "Identifier": "486a3bab-a86b-4088-8c37-60403a62fd86",
+      "Type": "UpdateContactTargetQueue",
+      "Transitions": {
+        "NextAction": "725b93d6-526b-4bc3-939d-2058253e5419",
+        "Errors": [
+          {
+            "NextAction": "725b93d6-526b-4bc3-939d-2058253e5419",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "725b93d6-526b-4bc3-939d-2058253e5419",
+      "Type": "TransferContactToQueue",
+      "Transitions": {
+        "NextAction": "c33f811a-bac7-48a6-a0b2-8b7bc1b4ad0d",
+        "Errors": [
+          {
+            "NextAction": "c33f811a-bac7-48a6-a0b2-8b7bc1b4ad0d",
+            "ErrorType": "QueueAtCapacity"
+          },
+          {
+            "NextAction": "c33f811a-bac7-48a6-a0b2-8b7bc1b4ad0d",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "RecordingBehavior": {
+          "RecordedParticipants": [
+            "Agent",
+            "Customer"
+          ],
+          "IVRRecordingBehavior": "Disabled"
+        },
+        "AnalyticsBehavior": {
+          "Enabled": "True",
+          "AnalyticsLanguage": "en-US",
+          "AnalyticsRedactionBehavior": "Disabled",
+          "AnalyticsRedactionResults": "RedactedAndOriginal",
+          "ChannelConfiguration": {
+            "Chat": {
+              "AnalyticsModes": []
+            },
+            "Voice": {
+              "AnalyticsModes": [
+                "RealTime"
+              ]
+            }
+          },
+          "SummaryConfiguration": {
+            "SummaryModes": [
+              "PostContact"
+            ]
+          }
+        }
+      },
+      "Identifier": "b87d111c-f845-4170-a1e8-b3bd8e14e68b",
+      "Type": "UpdateContactRecordingBehavior",
+      "Transitions": {
+        "NextAction": "7990fa57-7390-48b6-9c79-89a60ec5afcf"
+      }
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "c53f2c0d-1a18-442c-92be-973ce4b4640c",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "596a7f4d-34e5-4f66-aa96-4d31a41d25db"
+      }
+    },
+    {
+      "Parameters": {
+        "TextToSpeechVoice": "Joanna",
+        "TextToSpeechEngine": "Neural",
+        "TextToSpeechStyle": "Conversational"
+      },
+      "Identifier": "596a7f4d-34e5-4f66-aa96-4d31a41d25db",
+      "Type": "UpdateContactTextToSpeechVoice",
+      "Transitions": {
+        "NextAction": "b87d111c-f845-4170-a1e8-b3bd8e14e68b"
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "LOB": "Payment"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "4a06bb57-f800-4bc2-a7d1-ddb51c97c77c",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "e42fac42-382e-48d1-af9f-ac1d0c8311b9",
+        "Errors": [
+          {
+            "NextAction": "e42fac42-382e-48d1-af9f-ac1d0c8311b9",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "WisdomAssistantArn": "arn:aws:wisdom:ca-central-1:716590989057:assistant/96bcb5b9-24a3-4c6c-ae6f-2a3f095faf55"
+      },
+      "Identifier": "7990fa57-7390-48b6-9c79-89a60ec5afcf",
+      "Type": "CreateWisdomSession",
+      "Transitions": {
+        "NextAction": "5acfdcbd-7027-453b-b50b-e24f6399345a",
+        "Errors": [
+          {
+            "NextAction": "Play-GetInput",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "WisdomSessionArn": "$.Wisdom.SessionArn"
+      },
+      "Identifier": "5acfdcbd-7027-453b-b50b-e24f6399345a",
+      "Type": "UpdateContactData",
+      "Transitions": {
+        "NextAction": "Play-GetInput",
+        "Errors": [
+          {
+            "NextAction": "Play-GetInput",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "LOB": "Auto"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "6830fe8b-e8e4-40a5-95b5-ba803d621f9e",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "e42fac42-382e-48d1-af9f-ac1d0c8311b9",
+        "Errors": [
+          {
+            "NextAction": "e42fac42-382e-48d1-af9f-ac1d0c8311b9",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:ca-central-1:716590989057:function:dev-connect-q-devFunctionconnectqagentselector837E-UImKjttZHVH6",
+        "InvocationTimeLimitSeconds": "8",
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "e42fac42-382e-48d1-af9f-ac1d0c8311b9",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "486a3bab-a86b-4088-8c37-60403a62fd86",
+        "Errors": [
+          {
+            "NextAction": "486a3bab-a86b-4088-8c37-60403a62fd86",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "StoreInput": "False",
+        "InputTimeLimitSeconds": "5",
+        "Text": "Welcome to the Q in Connect Demo.\nFor Auto, Press 1,\nFor Credit, Press 2,\nFor Payments, Press 3"
+      },
+      "Identifier": "Play-GetInput",
+      "Type": "GetParticipantInput",
+      "Transitions": {
+        "NextAction": "6830fe8b-e8e4-40a5-95b5-ba803d621f9e",
+        "Conditions": [
+          {
+            "NextAction": "6830fe8b-e8e4-40a5-95b5-ba803d621f9e",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "1"
+              ]
+            }
+          },
+          {
+            "NextAction": "49e7b73e-f8d2-4674-addd-73e05d9623fd",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "2"
+              ]
+            }
+          },
+          {
+            "NextAction": "4a06bb57-f800-4bc2-a7d1-ddb51c97c77c",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "3"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "6830fe8b-e8e4-40a5-95b5-ba803d621f9e",
+            "ErrorType": "InputTimeLimitExceeded"
+          },
+          {
+            "NextAction": "6830fe8b-e8e4-40a5-95b5-ba803d621f9e",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "6830fe8b-e8e4-40a5-95b5-ba803d621f9e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "LOB": "Credit"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "49e7b73e-f8d2-4674-addd-73e05d9623fd",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "e42fac42-382e-48d1-af9f-ac1d0c8311b9",
+        "Errors": [
+          {
+            "NextAction": "e42fac42-382e-48d1-af9f-ac1d0c8311b9",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

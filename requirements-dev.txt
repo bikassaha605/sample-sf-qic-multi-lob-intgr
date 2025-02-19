@@ -1,0 +1,7 @@
+pytest==6.2.5
+pytest-cov==2.12.1
+pytest-mock==3.6.1
+moto>=4.0.0
+flake8>=3.9.0
+black>=21.5b2
+isort>=5.9.0
