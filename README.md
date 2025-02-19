@@ -1,30 +1,30 @@
 # **Pre-requisites**
 
 1. **AWS Environment**
-    1. Active AWS Account with appropriate access
-    2. AWS CLI installed and configured
-    3. AWS CDK CLI installed
-    4. Target region access and permissions
+    * Active AWS Account with appropriate access
+    * AWS CLI installed and configured
+    * AWS CDK CLI installed
+    * Target region access and permissions
 2. **Amazon Connect**
-    1. Active Amazon Connect instance
-    2. Configured Connect queue
-    3. Connect administrator access
+    * Active Amazon Connect instance
+    * Configured Connect queue
+    * Connect administrator access
 3. **Salesforce**
-    1. Salesforce org with API access
-    2. Knowledge base implementation
-    3. Appropriate Salesforce access
-    4. Connected App setup permissions - https://help.salesforce.com/articleView?id=connected_app_overview.htm
+    * Salesforce org with API access
+    * Knowledge base implementation
+    * Appropriate Salesforce access
+    * Connected App setup permissions - https://help.salesforce.com/articleView?id=connected_app_overview.htm
 4. AppFlow
-    1. Salesforce Connector for AppFlow  - https://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html#salesforce-setup
+    * Salesforce Connector for AppFlow  - https://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html#salesforce-setup
 5. **Development Environment**
-    1. Python 3.x
-    2. Git
-    3. Code editor
-    4. AWS CDK development experience
+    * Python 3.x
+    * Git
+    * Code editor
+    * AWS CDK development experience
 6. **Security Access**
-    1. Appropriate IAM permissions
-    2. Appropriate Salesforce access
-    3. Amazon AppFlow Service access
+    * Appropriate IAM permissions
+    * Appropriate Salesforce access
+    * Amazon AppFlow Service access
 
 ### 
 
