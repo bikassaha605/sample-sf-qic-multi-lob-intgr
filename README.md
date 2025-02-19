@@ -1,7 +1,7 @@
 # **Pre-requisites**
 
 1. **AWS Environment**
-    * Active AWS Account with appropriate access
+    a. Active AWS Account with appropriate access
     * AWS CLI installed and configured
     * AWS CDK CLI installed
     * Target region access and permissions
