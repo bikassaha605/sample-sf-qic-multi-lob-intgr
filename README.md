@@ -5,23 +5,23 @@
    b. AWS CLI installed and configured
    c. AWS CDK CLI installed
    d. Target region access and permissions
-2. **Amazon Connect**
+3. **Amazon Connect**
    - Active Amazon Connect instance
    - Configured Connect queue
    - Connect administrator access
-3. **Salesforce**
+4. **Salesforce**
    - Salesforce org with API access
    - Knowledge base implementation
    - Appropriate Salesforce access
    - Connected App setup permissions - https://help.salesforce.com/articleView?id=connected_app_overview.htm
-4. AppFlow
+5. AppFlow
    - Salesforce Connector for AppFlow  - https://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html#salesforce-setup
-5. **Development Environment**
+6. **Development Environment**
    - Python 3.x
    - Git
    - Code editor
    - AWS CDK development experience
-6. **Security Access**
+7. **Security Access**
    - Appropriate IAM permissions
    - Appropriate Salesforce access
    - Amazon AppFlow Service access
