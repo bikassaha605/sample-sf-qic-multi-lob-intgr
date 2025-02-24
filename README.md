@@ -214,6 +214,17 @@ After deployment completes:
 
 ### Post-Deployment Steps
 
+* Run the AppFlows
+    * Sign in the AWS Management Console and open the Amazon AppFlow console at https://console.aws.amazon.com/appflow/
+    * In the navigation pane on the left, choose **Flows**. The console shows the **Flows** page. This page contains a table that summarizes the flows that are created.
+    * To initiate a flow, you _activate_ or _run_ it. We have 2 types of flows created: **OnDemand** and **Scheduled**
+    * For each LOB, Select the OnDemand flow and choose **View Details**.
+    * Choose **Run flow** to run the flow.
+![Alt text](https://github.com/bhaskar27in/sf-qic-multi-lob-intgr/blob/main/images/onDemand-flow.jpg) 
+    * For each LOB, Select the Scheduled flow and choose **View Details**
+    * Choose **Activate** to activate the flow
+![Alt text](https://github.com/bhaskar27in/sf-qic-multi-lob-intgr/blob/main/images/scheduled-flow.jpg)
+  
 * Review and update the Amazon Connect contact flow
     a. Log in to your Amazon Connect instance
     b. Under **Routing**, choose **Contact Flows**.
