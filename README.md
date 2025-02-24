@@ -226,12 +226,12 @@ After deployment completes:
 ![Alt text](https://github.com/bhaskar27in/sf-qic-multi-lob-intgr/blob/main/images/scheduled-flow.jpg)
   
 * Review and update the Amazon Connect contact flow
-    a. Log in to your Amazon Connect instance
-    b. Under **Routing**, choose **Contact Flows**.
-    c. Choose the flow named: **qic-sf-contact-flow**
-    d. Navigate to the **Get customer input** Block
-    e. Update the Prompts to include your BUs or LOBs
-    f. Update the Set contact attributes block for each options. The LOB attribute is mandatory, and the value should be the same as the ones provided in the CDK configuration at the time of deployment
+    1. Log in to your Amazon Connect instance
+    2. Under **Routing**, choose **Contact Flows**.
+    3. Choose the flow named: **qic-sf-contact-flow**
+    4. Navigate to the **Get customer input** Block
+    5. Update the Prompts to include your BUs or LOBs
+    6. Update the Set contact attributes block for each options. The LOB attribute is mandatory, and the value should be the same as the ones provided in the CDK configuration at the time of deployment
 ![Alt text](https://github.com/bhaskar27in/sf-qic-multi-lob-intgr/blob/main/images/cf1.png)
     * Click **Save** to save the flow
     * Click **Publish** to publish the flow
