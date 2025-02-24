@@ -232,9 +232,14 @@ After deployment completes:
     - Navigate to the **Get customer input** Block
     - Update the Prompts to include your BUs or LOBs
     - Update the Set contact attributes block for each options. The LOB attribute is mandatory, and the value should be the same as the ones provided in the CDK configuration at the time of deployment
+
 ![Alt text](https://github.com/bhaskar27in/sf-qic-multi-lob-intgr/blob/main/images/cf1.png)
-    * Click **Save** to save the flow
-    * Click **Publish** to publish the flow
+    - Click **Save** to save the flow
+    - Click **Publish** to publish the flow
+      
+
+
+    
 * Verify the AppFlow flow status. 
     * Trigger the OnDemand Flow first - to retrieve the existing knowledge content from Salesforce
     * Start the Scheduled Flow - to periodically poll Salesforce Knowledge too import any additions/updates to the Salesforce Knowledge.
