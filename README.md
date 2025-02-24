@@ -247,12 +247,12 @@ After deployment completes:
 ### Common Issues and Solutions
 
 * **AppFlow Connection Issues**
-    a. Verify connection_name in config
-    b. Check Salesforce credentials
-    c. Validate OAuth token
+    * Verify connection_name in config
+    * Check Salesforce credentials
+    * Validate OAuth token
 * **Permission Errors**
-    a. Review IAM roles
-    b. Verify Salesforce API access
+    * Review IAM roles
+    * Verify Salesforce API access
 * **Knowledge Base Sync Issues**
-    a. Validate object_name configuration
-    b. Check field mappings
+    * Validate object_name configuration
+    * Check field mappings
