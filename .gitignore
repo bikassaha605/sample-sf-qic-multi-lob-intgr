@@ -1,0 +1,30 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+.egg-info/
+
+# Python cache
+*.egg
+*.egg-info/
+*.eggs/
+*.manifest
+*.spec
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# AWS CDK output
+cdk.out/
+
+# Operating system files
+.DS_Store
+Thumbs.db
