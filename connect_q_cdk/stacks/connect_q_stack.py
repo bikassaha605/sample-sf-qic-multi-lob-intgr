@@ -70,7 +70,7 @@ class ConnectQStack(Stack):
         kb_import_bucket = s3.Bucket(
             self,
             self._resource_manager.generate_resource_name("Bucket", "sfkb-import"),
-            bucket_name=f"{env_name}-sfkb-import-{Stack.of(self).region.replace('-', '')}",
+            bucket_name=f"{env_name}-sfkb-import-{Stack.of(self).account}-{Stack.of(self).region.replace('-', '')}",
             removal_policy=RemovalPolicy.DESTROY,
             auto_delete_objects=True,
             encryption=s3.BucketEncryption.KMS,
@@ -89,7 +89,7 @@ class ConnectQStack(Stack):
             lob_output_buckets[lob] = s3.Bucket(
                 self,
                 self._resource_manager.generate_resource_name("Bucket", f"sfkb-{lob_name}"),
-                bucket_name=f"{env_name}-sfkb-{lob_name}-{Stack.of(self).region.replace('-', '')}",
+                bucket_name=f"{env_name}-sfkb-{lob_name}-{Stack.of(self).account}-{Stack.of(self).region.replace('-', '')}",
                 removal_policy=RemovalPolicy.DESTROY,
                 auto_delete_objects=True,
                 encryption=s3.BucketEncryption.KMS,
