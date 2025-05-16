@@ -175,13 +175,6 @@ If this is your first time using CDK in this account/region:
 cdk bootstrap aws://ACCOUNT-NUMBER/REGION
 ```
 
-### Build the Project
-
-```
-# Install project dependencies
-npm run build
-```
-
 ### Review CDK Diff
 
 ```
