@@ -249,3 +249,12 @@ After deployment completes:
 * **Knowledge Base Sync Issues**
     * Validate object_name configuration
     * Check field mappings
+
+## Cleaning up
+
+To avoid incurring future charges, delete the resources using following steps:
+
+* Ensure to unmap the Contact Flow created by the deployment from the phone number.
+* In your terminal, ensure you are in the project folder 
+* Run command: cdk destroy
+
