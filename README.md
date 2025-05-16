@@ -156,7 +156,7 @@
 ```
 # Clone the repository
 git clone <repository-url>
-cd ConnectQ-CDK
+cd <project folder>
 
 ```
 
